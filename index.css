@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #1d3557; /* Dark blue for focus */
+  margin-bottom: 30px;
+}
+
+.folders {
+  max-width: 600px;
+  margin: auto;
+}
+
+.folder {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.folder-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  background: #e63946; /* Red for urgency */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.folder-btn:hover {
+  background: #d62828; /* Darker red */
+}
+
+.dropdown {
+  display: none;
+  padding: 15px;
+  background: #f1faee; /* Soft green for calmness */
+}
+
+.dropdown label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #2a9d8f; /* Teal-green for growth & completion */
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #457b9d; /* Blue to symbolize done */
+}
+
+/* Progress bar */
+.progress-container {
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #2a9d8f;
+  transition: width 0.3s ease-in-out;
+}
