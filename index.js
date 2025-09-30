@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const foldersContainer = document.getElementById("folders");
+  const fileImagesContainer = document.getElementById("fileImages");
 
-  // List of files
+  // ✅ File list
   const files = [
     "Student Data Form",
     "Student’s Information Form",
@@ -19,7 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
     "Attestation Letters (2)",
   ];
 
-  // Generate 4 folders dynamically
+  // ✅ Map each file → image location (just update these paths)
+  const fileImages = {
+    "Student Data Form": "accFee.jpeg",
+    "Student’s Information Form": "./imgs/InformationForm.jpeg",
+    "Health Centre Form": "./imgs/MedicalForm.jpeg",
+    "Student’s Registration Form": "./imgs/RegistrationForm.jpeg",
+    "Admission Clearance Form": "./imgs/AdmissionClearanceForm.jpeg",
+    "Hostel Allocation Slip": "./imgs/HostelAll.jpeg",
+    "Receipt of Acceptance Fee Payment": "./imgs/accFee.jpeg",
+    "Receipt of School Fees Payment": "./imgs/EvidenceOfSchoolFeesPayment.jpeg",
+    "JAMB Result Slip": ".img/JambReg.jpeg",
+    "O’Level Results": "imgs/Olevel.jpeg",
+    "NIN Slip": "./imgs/NinSlip.jpeg",
+    "Certificate of Origin": "./imgs/CertificateOfOrigin.jpeg",
+    "Birth Certificate": "imgs/CertificateOfBirth.jpeg",
+    "Attestation Letters (2)": "./imgs/attestation.jpeg",
+  };
+
+  // ✅ Generate 4 folders dynamically
   for (let i = 1; i <= 4; i++) {
     const folder = document.createElement("div");
     folder.classList.add("folder");
@@ -42,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     progressContainer.appendChild(progressBar);
     dropdown.appendChild(progressContainer);
 
-    // Add all files as checkboxes
+    // Add checkboxes for all files
     files.forEach((file) => {
       const label = document.createElement("label");
       const checkbox = document.createElement("input");
@@ -53,12 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Checkbox logic
       checkbox.addEventListener("change", () => {
+        // Strike through completed
         if (checkbox.checked) {
           label.classList.add("completed");
         } else {
           label.classList.remove("completed");
         }
 
+        // Update progress bar
         const total = dropdown.querySelectorAll(
           "input[type='checkbox']"
         ).length;
@@ -67,16 +88,39 @@ document.addEventListener("DOMContentLoaded", () => {
         ).length;
         const percent = (checked / total) * 100;
         progressBar.style.width = percent + "%";
+
+        // Optional: change color of bar based on completion %
+        if (percent < 40) {
+          progressBar.style.background = "#e63946"; // red
+        } else if (percent < 80) {
+          progressBar.style.background = "#f4a261"; // orange
+        } else {
+          progressBar.style.background = "#2a9d8f"; // green
+        }
       });
     });
 
     folder.appendChild(dropdown);
     foldersContainer.appendChild(folder);
 
-    // Toggle dropdown
+    // Toggle dropdown on click
     button.addEventListener("click", () => {
       dropdown.style.display =
         dropdown.style.display === "block" ? "none" : "block";
     });
   }
+
+  // ✅ Render file images section
+  files.forEach((file) => {
+    const wrapper = document.createElement("div");
+    const img = document.createElement("img");
+    img.src = fileImages[file]; // location from map
+    img.alt = file;
+    const caption = document.createElement("p");
+    caption.textContent = file;
+
+    wrapper.appendChild(img);
+    wrapper.appendChild(caption);
+    fileImagesContainer.appendChild(wrapper);
+  });
 });
