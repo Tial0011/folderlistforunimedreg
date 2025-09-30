@@ -3,16 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Documentation Checklist</title>
+    <title>Document Checklist</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>Documentation Checklist</h1>
-    <div class="folders" id="folders"></div>
+    <h1>📂 Document Checklist</h1>
 
-    <!-- Images section -->
-    <h2>📑 File Samples</h2>
-    <div class="file-images" id="fileImages"></div>
+    <!-- Folders area -->
+    <div id="folders"></div>
+
+    <!-- File Previews -->
+    <section id="file-previews">
+      <h2>File Previews</h2>
+      <div id="fileImages"></div>
+    </section>
+
+    <!-- To-Do List -->
+    <section id="todo-section">
+      <h2>To-Do List</h2>
+      <div class="todo-input">
+        <input
+          type="text"
+          id="todo-text"
+          placeholder="e.g. Print Transcript - 3 copies"
+        />
+        <button id="add-todo">Add</button>
+      </div>
+      <ul id="todo-list"></ul>
+    </section>
 
     <script src="index.js"></script>
   </body>

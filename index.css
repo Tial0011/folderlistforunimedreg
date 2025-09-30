@@ -1,105 +1,159 @@
+/* ===== General Layout ===== */
 body {
   font-family: Arial, sans-serif;
-  background: #f8f9fa;
+  background: #f7f9fc;
+  margin: 20px;
   color: #333;
-  margin: 0;
-  padding: 20px;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
-  color: #1d3557; /* Dark blue for focus */
-  margin-bottom: 30px;
+  color: #2c3e50;
 }
 
-.folders {
-  max-width: 600px;
-  margin: auto;
+/* ===== Folders ===== */
+#folders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
 }
 
 .folder {
-  margin-bottom: 15px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Folder Button */
 .folder-btn {
   width: 100%;
-  padding: 15px;
-  font-size: 16px;
+  padding: 10px;
+  background: #2980b9;
+  color: white;
   font-weight: bold;
-  text-align: left;
-  background: #e63946; /* Red for urgency */
-  color: #fff;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 .folder-btn:hover {
-  background: #d62828; /* Darker red */
+  background: #1f5e85;
 }
 
+/* Dropdown inside folder */
 .dropdown {
   display: none;
-  padding: 15px;
-  background: #f1faee; /* Soft green for calmness */
+  margin-top: 10px;
 }
 
 .dropdown label {
   display: block;
-  margin-bottom: 10px;
-  font-size: 15px;
+  margin: 6px 0;
   cursor: pointer;
 }
 
-input[type="checkbox"] {
-  margin-right: 10px;
-  accent-color: #2a9d8f; /* Teal-green for growth & completion */
-}
-
-.completed {
+.dropdown label.completed {
   text-decoration: line-through;
-  color: #457b9d; /* Blue to symbolize done */
+  color: #555;
 }
 
-/* Progress bar */
+/* ===== Progress Bar ===== */
 .progress-container {
   width: 100%;
-  background: #e0e0e0;
+  height: 8px;
+  background: #ddd;
   border-radius: 5px;
-  margin-bottom: 15px;
-  height: 12px;
-  overflow: hidden;
+  margin: 10px 0;
 }
 
 .progress-bar {
-  width: 0%;
   height: 100%;
-  background: #2a9d8f;
-  transition: width 0.3s ease-in-out;
+  width: 0%;
+  border-radius: 5px;
+  background: #e63946; /* default red */
+  transition: width 0.3s ease;
 }
-.file-images {
-  max-width: 900px;
-  margin: 40px auto;
+
+/* ===== File Previews ===== */
+#fileImages {
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
 }
 
-.file-images div {
+#fileImages div {
   text-align: center;
-  background: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  object-fit: fill;
 }
 
-.file-images img {
+#fileImages img {
   width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 8px;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+#fileImages p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* ===== To-Do List ===== */
+#todo-section {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #2980b9;
+  border-radius: 5px;
+}
+
+.todo-input button {
+  padding: 10px 15px;
+  background: #27ae60;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-input button:hover {
+  background: #219150;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+#todo-list input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+#todo-list span {
+  flex: 1;
 }

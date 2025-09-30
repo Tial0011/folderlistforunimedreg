@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Attestation Letters (2)",
   ];
 
-  // ✅ Map each file → image location (just update these paths)
+  // ✅ Map each file → image location
   const fileImages = {
     "Student Data Form": "./imgs/DataForm.jpeg",
     "Student’s Information Form": "./imgs/InformationForm.jpeg",
@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "Receipt of Acceptance Fee Payment": "./imgs/accFee.jpeg",
     "Receipt of School Fees Payment": "./imgs/EvidenceOfSchoolFeesPayment.jpeg",
     "JAMB Result Slip": "./imgs/JambReg.jpeg",
-    "O’Level Results": "imgs/Olevel.jpeg",
+    "O’Level Results": "./imgs/Olevel.jpeg",
     "NIN Slip": "./imgs/NinSlip.jpeg",
     "Certificate of Origin": "./imgs/CertificateOfOrigin.jpeg",
-    "Birth Certificate": "imgs/CertificateOfBirth.jpeg",
+    "Birth Certificate": "./imgs/CertificateOfBirth.jpeg",
     "Attestation Letters (2)": "./imgs/attestation.jpeg",
   };
 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const percent = (checked / total) * 100;
         progressBar.style.width = percent + "%";
 
-        // Optional: change color of bar based on completion %
+        // Change color of bar based on completion %
         if (percent < 40) {
           progressBar.style.background = "#e63946"; // red
         } else if (percent < 80) {
@@ -123,4 +123,32 @@ document.addEventListener("DOMContentLoaded", () => {
     wrapper.appendChild(caption);
     fileImagesContainer.appendChild(wrapper);
   });
+
+  // ================== ✅ To-Do List ==================
+  const todoInput = document.getElementById("todo-text");
+  const addTodoBtn = document.getElementById("add-todo");
+  const todoList = document.getElementById("todo-list");
+
+  if (todoInput && addTodoBtn && todoList) {
+    // Add task by button
+    addTodoBtn.addEventListener("click", addTask);
+
+    // Add task by Enter key
+    todoInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") addTask();
+    });
+
+    function addTask() {
+      const task = todoInput.value.trim();
+      if (task !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <input type="checkbox">
+          <span>${task}</span>
+        `;
+        todoList.appendChild(li);
+        todoInput.value = "";
+      }
+    }
+  }
 });
