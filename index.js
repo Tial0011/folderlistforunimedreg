@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Map each file → image location (just update these paths)
   const fileImages = {
-    "Student Data Form": "accFee.jpeg",
+    "Student Data Form": "./imgs/DataForm.jpeg",
     "Student’s Information Form": "./imgs/InformationForm.jpeg",
     "Health Centre Form": "./imgs/MedicalForm.jpeg",
     "Student’s Registration Form": "./imgs/RegistrationForm.jpeg",
