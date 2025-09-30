@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Hostel Allocation Slip": "./imgs/HostelAll.jpeg",
     "Receipt of Acceptance Fee Payment": "./imgs/accFee.jpeg",
     "Receipt of School Fees Payment": "./imgs/EvidenceOfSchoolFeesPayment.jpeg",
-    "JAMB Result Slip": "./img/JambReg.jpeg",
+    "JAMB Result Slip": "./imgs/JambReg.jpeg",
     "O’Level Results": "imgs/Olevel.jpeg",
     "NIN Slip": "./imgs/NinSlip.jpeg",
     "Certificate of Origin": "./imgs/CertificateOfOrigin.jpeg",
